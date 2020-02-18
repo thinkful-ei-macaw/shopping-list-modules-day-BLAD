@@ -12,7 +12,7 @@ const generateItemElement = function (item) {
   }
 
   return `
-    <li class="js-item-element" data-item-id="${item.id}">
+    <li class="js-item-element" data-item-id="${ß.id}">
       ${itemTitle}
       <div class="shopping-item-controls">
         <button class="shopping-item-toggle js-item-toggle">

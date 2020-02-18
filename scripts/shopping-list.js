@@ -7,13 +7,13 @@ const generateItemElement = function (item) {
   if (!item.checked) {
     itemTitle = `
       <form class="js-edit-item">
-        <input class="shopping-item" type="text" value="${item.name}" />
+        <input class="shopping-item" type="text" value="${item.name}"/>
       </form>
     `;
   }
 
   return `
-    <li class="js-item-element" data-item-id="${ß.id}">
+    <li class="js-item-element" data-item-id="${item.id}">
       ${itemTitle}
       <div class="shopping-item-controls">
         <button class="shopping-item-toggle js-item-toggle">

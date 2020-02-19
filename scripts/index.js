@@ -8,4 +8,6 @@ const main = function () {
   shoppingList.render();
 };
 
+
+
 $(main);

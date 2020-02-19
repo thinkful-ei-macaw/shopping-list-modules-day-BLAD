@@ -24,23 +24,27 @@ function addItem(name) {
 }
 
 function findAndToggleChecked(id) {
-  const item = this.findById(id);
-  item.checked = !item.checked;
+  let foundItem = this.findById(id);
+  foundItem.checked = !foundItem.checked;
 }
-
-/*Create a findAndUpdateName function that accepts id and newName as its arguments.
-
-Use a try/catch block.
-Inside the try block, validate the name and then use findById() to fetch the item and update its name.
-Inside the catch block, log the following message to the console: Cannot update name: ${error.message}.*/
 
 function findAndUpdateByName(id, newName) {
   try {
-    const item = this.findById(id);
-    item.name = newName;
-  } catch {
-    console.log(`Cannot update name ${error.message}`)
+    item.validateName(newName);
+    let foundItem = this.findById(id);
+    foundItem.name = newName;
+  } catch(err) {
+    throw new TypeError(`Cannot update name ${err.message}`);
   }
+}
+
+function findAndDelete(id) {
+  const index = this.items.findIndex(item => item.id === id);
+  this.items.splice(index, 1);
+}
+
+const toggleCheckedFilter = function () {
+  store.hideCheckedItems = !this.hideCheckedItems;
 }
 
 export default {
@@ -48,5 +52,8 @@ export default {
   hideCheckedItems,
   findById,
   addItem,
-  findAndToggleChecked
+  findAndToggleChecked,
+  findAndUpdateByName,
+  findAndDelete,
+  toggleCheckedFilter
 };
